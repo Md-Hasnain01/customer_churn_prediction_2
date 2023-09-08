@@ -1,0 +1,57 @@
+A brief report summarizing your approach, including any data preprocessing, feature 
+engineering, and model selection decision.
+ 
+ 
+ 1. Data Preprocessing:
+ 
+ * Loading Data: The code start from by loading the customer churn dataset from a CSV file.
+ 
+ * Removing Unnecessary Columns: Columns such as "CustomerID" and "Name" are removed because 
+   they are unlikely to provide meaningful information for predicting churn.
+
+ * Encoding Categorical Features:The "Gender" column, which is categorical, is encoded using        Label Encoding, and the "Location" column is one-hot encoded.
+ 
+ * Handling Missing Data: Missing value in column like "Age," "Subscription_Length_Months,"          "Monthly_Bill," and "Total_Usage_GB" using meadian strategy.
+ 
+ * Outlier Detection and Removal: Outliers in the same numeric columns are detected and removed      outlier using the Interquartile Range (IQR) method.
+ 
+ 2. Model Selection:
+ 
+ * Model Selection: The code selects the RandomForestRegressor from scikit-learn as the machine    learning model for predicting churn.This regressoris versatil for handling the both              regression    and classification.
+ 
+ 3. Data Spliting and Model Training, Evaluation:
+   
+ *  Data Spliting: The Dataset is split into training and testing set in 80-20 ratio.
+ 
+ *  Feature Scaling: Feature are standardized by using 'StandardScaler'.
+ 
+ *  Model Training: The 'RandomForestRegressor' is trained on the training data.
+ 
+ *  Model Evaluation: The model's performance is evaluated using cross-validation(cross-var-         score) with 20 folds and calculating the root mean squared error (RMSE).And using metrics,       including accuracy, precision, recall, and F1-score, on the testing set.
+    
+ 4. Dump and Load:
+ 
+ *  Dump the Customer Churn prediction using joblib.
+ 
+ *  Load the Customer Churn prediction in churn prediction using joblib.
+ 
+ 5. Predicting Churn for New Customers:
+ 
+ *  A function,'predict_churn', is defined to make churn predictions for new customer data.
+ 
+ *  User inputs for customer attributes (age, gender, location, subscription length, monthly         bill, total usage) are collected.
+ 
+ *  A new customer data frame is created and passed to the 'predict_churn' function to make a       churn prediction for the new customer.
+ 
+ 6. Handling Missing Target Values:
+ 
+ *  The code ensures that the target variable (y_train) is checked for missing values and           handles them appropriately by either removing rows or imputing the target values.
+ 
+ 7. Summary:
+ 
+     In summary, the approach involves extensive data preprocessing to handle missing data and outliers, encoding categorical variables, and standardizing features. The HistGradientBoostingClassifier is chosen as the classification model due to its efficiency and strong performance. The model is trained and evaluated on the training and testing data, respectively. Lastly, the code allows for predicting churn for new customers based on their attributes.
+ 
+ 
+  
+ 
+ 
